@@ -5,7 +5,7 @@ A scala driver for launching Amazon EMR jobs
 
 We run a lot of reports.  In the past, these have been kicked off by bash scripts that typically do things like date math, copy scripts and config files to s3 before calling to the amazon elastic-mapreduce command line client to launch the job.  The emr client invocation ends up being dozen of lines of bash code adding each step and passing arguments.
 
-It's been a pain to share defaults or add any abstraction over common job steps.  Additionally, performing date arithmetic and conditionally adding EMR steps can be a pain.  Lastly, some the EMR client offers less control over certain options available from the EMR API.
+It's been a pain to share defaults or add any abstraction over common job steps.  Additionally, performing date arithmetic and conditionally adding EMR steps can be a pain.  Lastly, the EMR client offers less control over certain options available from the EMR API.
 
 ## simple example
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+
+  <info organisation="bizo.com" module="spark-plug">
+    <license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.html/"/>
+  </info>
+
+  <configurations>
+    <conf name="default" description="core dependencies needed at compile-time and runtime"/>
+    <conf name="buildtime" visibility="private" description="additional dependencies needed only at build time"/>
+    <conf name="test" visibility="private" description="additional dependencies needed only for testing"/>
+    <conf name="sources" description="source artifacts"/>
+  </configurations>
+
+  <publications>
+    <artifact conf="default"/>
+    <artifact name="${ivy.module}-src" type="source" ext="zip" conf="sources"/>
+  </publications>
+
+  <dependencies defaultconfmapping="sources->sources();%->default" defaultconf="default;sources">
+    <!-- default (compile, test, runtime) dependencies -->
+    <dependency org="apache" name="commons-lang" rev="2.6"/>
+    <dependency org="amazon" name="aws-java-sdk" rev="1.3.6" />
+    <dependency org="json.org" name="json-simple" rev="1.1" />
+    
+    <dependency org="scala" name="scala" rev="2.9.1.final" conf="default->default;sources->sources;buildtime->compiler"/>
+
+    <!-- build time only dependencies -->
+    <dependency org="findbugs" name="findbugs" rev="1.3.9" conf="buildtime"/>
+    <dependency org="checkstyle" name="checkstyle" rev="all-5.1" conf="buildtime"/>
+    <dependency org="svntask" name="svntask" rev="1.0.7" conf="buildtime"/>
+    <dependency org="cobertura" name="cobertura" rev="1.9.4.1" conf="buildtime"/>
+
+    <!-- test time only dependencies -->
+    <dependency org="junit" name="junit" rev="4.8.2" conf="test"/>
+  </dependencies>
+</ivy-module>

@@ -13,14 +13,18 @@ import java.io.FileReader
 class EmrJsonCredentials(jsonFile: File) extends AWSCredentials {
   val (accessKey, secretKey) = parseKeys(jsonFile)
   
-  def getAWSAccessKeyId() = accessKey
-  def getAWSSecretKey() = secretKey
+  override def getAWSAccessKeyId() = accessKey
+  override def getAWSSecretKey() = secretKey
   
-  def parseKeys(jsonFile: File) = {
+  private def parseKeys(jsonFile: File): (String, String) = {
     val r = new FileReader(jsonFile)
-    val o = JSONValue.parse(r).asInstanceOf[JSONObject]
     
-    (o.get("access-id").toString, o.get("private-key").toString)
+    try {
+      val o = JSONValue.parse(r).asInstanceOf[JSONObject]
+      (o.get("access-id").toString, o.get("private-key").toString)
+    } finally {
+      r.close()
+    }
   }
 }
 

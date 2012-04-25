@@ -5,6 +5,7 @@ import scala.collection.JavaConversions._
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient
 import com.amazonaws.auth.AWSCredentials
 import com.bizo.hive.sparkplug.auth._
+import org.apache.commons.lang.StringUtils.substringAfterLast
 
 class Emr(credentials: AWSCredentials) {
   lazy val emr = new AmazonElasticMapReduceClient(credentials)
@@ -156,20 +157,15 @@ case class JarStep(jar: String, mainClass: Option[String] = None, args: Seq[Stri
 }
 
 object JobStepUtils {
-  private val scriptPattern = """.*/([^/]+)""".r
-  def getScriptName(script: String) = script match {
-    case scriptPattern(name) => name
-    case _ => script
+  def getScriptName(script: String) = substringAfterOrInput(script, "/")
+  
+  def getJarName(jar: String, mainClass: Option[String] = None) = {
+    getScriptName(jar) + mainClass.map{ m => ":" + substringAfterOrInput(m, ".") }.getOrElse("")
   }
   
-  private val classPattern = """.*\.([^\.]+)""".r
-  def getJarName(jar: String, mainClass: Option[String] = None) = {
+  private def substringAfterOrInput(input: String, substring: String): String = {
+    val last = substringAfterLast(input, substring)
 
-    getScriptName(jar) + mainClass.map({ m =>
-      ":" + (m match {
-        case classPattern(name) => name
-        case _ => m
-      })
-    }).getOrElse("")
-  }
+    if (last == "") input else last
+  } 
 }

@@ -117,7 +117,7 @@ class Task(num: Int, size: String, bid: Option[Double] = None) extends InstanceG
 object Task {
   def apply(num: Int, size: String, bid: Double) = new Task(num, size, Some(bid))
   def apply(num: Int, bid: Double) = new Task(num, "m1.xlarge", Some(bid))
-  def apply(num: Int, size: String = "m1.large") = new Task(num, size, None)
+  def apply(num: Int, size: String = "m1.xlarge") = new Task(num, size, None)
 }
 
 trait JobStep {

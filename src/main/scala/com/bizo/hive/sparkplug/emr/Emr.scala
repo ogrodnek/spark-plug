@@ -21,9 +21,9 @@ class Emr(credentials: AWSCredentials) {
   def run(name: String, cluster: ClusterConfig, instances: Seq[InstanceGroup], steps: Seq[JobStep]) {
 
     val request = new RunJobFlowRequest(name, toJobFlowInstancesConfig(cluster, instances))
-    request.setLogUri(cluster.logUri.getOrElse(null))
+    request.setLogUri(cluster.logUri.orNull)
     request.setSteps(toStepConfig(steps))
-    request.setAmiVersion(cluster.amiVersion.getOrElse(null))
+    request.setAmiVersion(cluster.amiVersion.orNull)
     
     emr.runJobFlow(request)
   }
@@ -31,8 +31,8 @@ class Emr(credentials: AWSCredentials) {
   private def toJobFlowInstancesConfig(cluster: ClusterConfig, instances: Seq[InstanceGroup]): JobFlowInstancesConfig = {
     val config = new JobFlowInstancesConfig
     
-    config.setEc2KeyName(cluster.sshKeyPair.getOrElse(null))
-    config.setHadoopVersion(cluster.hadoopVersion.getOrElse(null))
+    config.setEc2KeyName(cluster.sshKeyPair.orNull)
+    config.setHadoopVersion(cluster.hadoopVersion.orNull)
     config.setKeepJobFlowAliveWhenNoSteps(cluster.keepAlive)
         
     val groups = instances.map(toInstanceGroupConfig(_))

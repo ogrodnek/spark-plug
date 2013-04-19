@@ -1,4 +1,6 @@
 # spark-plug
+[![Build Status](https://drone.io/github.com/ogrodnek/spark-plug/status.png)](https://drone.io/github.com/ogrodnek/spark-plug/latest)
+
 A scala driver for launching Amazon EMR jobs
 
 ## why?
@@ -9,14 +11,20 @@ It's been a pain to share defaults or add any abstraction over common job steps.
 
 ## simple example
 
-    val steps = Seq(
-      Steps.setupDebugging(),
-      Steps.installHive(),
-      HiveStep("s3://bucket/location/report.sql", Map("YEAR" -> year, "MONTH" -> month, "DAY" -> day))
-    )
+```
+val steps = Seq(
+  Steps.setupDebugging(),
+    HiveStep("s3://bucket/location/report.sql",
+      Map("YEAR" -> year, "MONTH" -> month, "DAY" -> day))
+)
 
-    val name = "%s: analytics report %s".format(stage, date)
-    val instances = (Master("m1.large"), Core(4), Task(12, 0.30))
+val name = "%s: analytics report %s".format(stage, date)
+val instances = (Master("m1.large"), Core(4), Task(12, 0.30))
 
-    Emr().run(name, ClusterDefaults(hadoop = "0.20"), instances, steps)
+Emr().run(name, ClusterDefaults(hadoop = "0.20"), instances, steps)
+```
+
+## download
+
+* [spark-plug_2.9.2-1.2.1](https://drone.io/github.com/ogrodnek/spark-plug/files/target/scala-2.9.2/spark-plug_2.9.2-1.2.1.jar)
 

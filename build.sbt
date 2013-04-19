@@ -6,6 +6,8 @@ version := "1.2.1"
 
 scalaVersion := "2.9.2"
 
+scalacOptions ++= Seq("-unchecked", "-deprecation")
+
 libraryDependencies ++= Seq(
   "com.amazonaws" % "aws-java-sdk" % "1.3.25",
   "com.googlecode.json-simple" % "json-simple" % "1.1.1",

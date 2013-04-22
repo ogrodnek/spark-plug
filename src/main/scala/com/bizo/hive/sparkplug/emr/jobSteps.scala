@@ -34,8 +34,8 @@ case class HiveStep(version: String, script: String, args: Map[String, String]) 
   override val name = "Hive: " + JobStepUtils.getScriptName(script)
 }
 
-/** Generic JarStep for running a jar with an optional main class and optional args. */
-case class JarStep(jar: String, mainClass: Option[String] = None, args: Seq[String] = Seq.empty) extends JobStep {
+/** Abstract job step representing running a jar file with optional main class and arguments. */
+abstract class AbstractJarStep(jar: String, mainClass: Option[String] = None, args: Seq[String] = Seq.empty) extends JobStep {
   override def toHadoopJarStep: HadoopJarStepConfig = {
     val config = new HadoopJarStepConfig(jar)
     for (main <- mainClass) {
@@ -43,25 +43,31 @@ case class JarStep(jar: String, mainClass: Option[String] = None, args: Seq[Stri
     }
     config.withArgs(args)
   }
+}
 
+/** Generic JarStep for running a jar with an optional main class and optional args. */
+case class JarStep(jar: String, mainClass: Option[String] = None, args: Seq[String] = Seq.empty) extends AbstractJarStep(jar, mainClass, args) {
   override val name = "Jar: " + JobStepUtils.getJarName(jar)
 }
 
-/** Generic script to execute a shell script with optional arguments. */
-case class ScriptStep(script: String, scriptArgs: Seq[String] = Seq.empty) extends JarStep(
+/** Abstract job step representing running an arbitrary script via the AWS-provided script-runner jar. */
+abstract class AbstractScriptStep(script: String, scriptArgs: Seq[String] = Seq.empty) extends AbstractJarStep(
   jar = "s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar",
-  args = Seq(script) ++ scriptArgs) {
+  args = Seq(script) ++ scriptArgs)
+
+/** Generic script to execute a shell script with optional arguments. */
+case class ScriptStep(script: String, scriptArgs: Seq[String] = Seq.empty) extends AbstractScriptStep(script, scriptArgs) {
   override val name = "Script: " + JobStepUtils.getScriptName(script)
 }
 
 /** Installs Hive. */
-case class InstallHive(version: String) extends ScriptStep(
+case class InstallHive(version: String) extends AbstractScriptStep(
   script = "s3://us-east-1.elasticmapreduce/libs/hive/hive-script",
   scriptArgs = Seq("--base-path", "s3://us-east-1.elasticmapreduce/libs/hive/", "--install-hive", "--hive-versions", version)) {
   override val name = "Install Hive " + version
 }
 
-case class SetupDebugging extends ScriptStep("s3://us-east-1.elasticmapreduce/libs/state-pusher/0.1/fetch") {
+case class SetupDebugging() extends AbstractScriptStep("s3://us-east-1.elasticmapreduce/libs/state-pusher/0.1/fetch") {
   override val name = "Setup Debugging"
 }
 

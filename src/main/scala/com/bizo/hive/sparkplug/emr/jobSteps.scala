@@ -34,6 +34,7 @@ case class HiveStep(version: String, script: String, args: Map[String, String]) 
   override val name = "Hive: " + JobStepUtils.getScriptName(script)
 }
 
+/** Abstract job step representing running a jar file with optional main class and arguments. */
 abstract class AbstractJarStep(jar: String, mainClass: Option[String] = None, args: Seq[String] = Seq.empty) extends JobStep {
   override def toHadoopJarStep: HadoopJarStepConfig = {
     val config = new HadoopJarStepConfig(jar)
@@ -49,6 +50,7 @@ case class JarStep(jar: String, mainClass: Option[String] = None, args: Seq[Stri
   override val name = "Jar: " + JobStepUtils.getJarName(jar)
 }
 
+/** Abstract job step representing running an arbitrary script via the AWS-provided script-runner jar. */
 abstract class AbstractScriptStep(script: String, scriptArgs: Seq[String] = Seq.empty) extends AbstractJarStep(
   jar = "s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar",
   args = Seq(script) ++ scriptArgs)

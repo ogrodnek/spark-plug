@@ -13,9 +13,9 @@ It's been a pain to share defaults or add any abstraction over common job steps.
 
 ```
 val steps = Seq(
-  Steps.setupDebugging(),
-    HiveStep("s3://bucket/location/report.sql",
-      Map("YEAR" -> year, "MONTH" -> month, "DAY" -> day))
+  SetupDebugging(),
+  HiveStep("s3://bucket/location/report.sql",
+           Map("YEAR" -> year, "MONTH" -> month, "DAY" -> day))
 )
 
 val name = "%s: analytics report %s".format(stage, date)

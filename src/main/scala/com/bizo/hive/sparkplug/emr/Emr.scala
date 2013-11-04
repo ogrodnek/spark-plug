@@ -84,6 +84,7 @@ class Emr(credentials: AWSCredentials) {
 
 object Emr {
   def apply() = new Emr(EmrJsonCredentials())
+  def apply(credentials: AWSCredentials) = new Emr(credentials)
   def run(flow: JobFlow)(implicit config: ClusterConfig): String = {
     apply().run(flow)(config)
   }

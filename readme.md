@@ -26,5 +26,5 @@ Emr().run(name, ClusterDefaults(hadoop = "0.20"), instances, steps)
 
 ## download
 
-* [spark-plug_2.9.2-1.2.1](https://drone.io/github.com/ogrodnek/spark-plug/files/target/scala-2.9.2/spark-plug_2.9.2-1.2.1.jar)
+* [spark-plug_2.10-1.2.1](https://drone.io/github.com/ogrodnek/spark-plug/files/target/scala-2.10/spark-plug_2.10-1.2.1.jar)
 

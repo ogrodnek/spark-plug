@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<project name="spark-plug_2.10" default="dist">
+  <property file="build.properties"/>
+  <property file="project.properties"/>
+  <property file="${common.build.dir}/build.properties"/>
+  <property file="${common.build.dir}/project.properties"/>
+  <property file="${user.home}/build.properties"/>
+
+  <import file="${common.build.dir}/common-targets.xml" />
+  <import file="${common.build.dir}/scala-targets.xml" />
+  <import file="${common.build.dir}/repository-targets.xml"/>
+
+  <target name="compile.source" depends="scala.compile.source" />
+  <target name="compile.tests" depends="scala.compile.tests" />
+
+  <target name="hudson" depends="reallyclean, tests, dist" />
+
+  <target name="release" depends="reallyclean, tests, dist, publish.repo" />
+</project>

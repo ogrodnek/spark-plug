@@ -4,7 +4,7 @@ name := "spark-plug"
 
 version := "1.2.1"
 
-crossScalaVersions := Seq("2.9.2", "2.10.1")
+scalaVersion := "2.10.2"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 

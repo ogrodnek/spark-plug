@@ -9,6 +9,7 @@ trait ClusterConfig {
   def defaultCoreSize: String = "m1.xlarge"
   def defaultTaskSize: String = defaultCoreSize
   def visibleToAllUsers: Option[Boolean] = None
+  def availabilityZone: Option[String] = None
 }
 
 class DefaultBidProvider extends BidProvider {

@@ -35,6 +35,10 @@ class Emr(credentials: AWSCredentials) {
     flow.setKeepJobFlowAliveWhenNoSteps(keepAlive)
     flow.setTerminationProtected(keepAlive)
 
+    for (az <- config.availabilityZone) {
+      flow.setPlacement(new PlacementType().withAvailabilityZone(az))
+    }
+    
     val groups = instances.map(toInstanceGroupConfig(config, _))
 
     flow.withInstanceGroups(groups)

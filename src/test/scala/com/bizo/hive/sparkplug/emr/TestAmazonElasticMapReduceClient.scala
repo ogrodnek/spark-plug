@@ -5,6 +5,7 @@ import com.amazonaws.services.elasticmapreduce.model._
 import com.amazonaws.ResponseMetadata
 import com.amazonaws.AmazonWebServiceRequest
 import java.util.UUID
+import com.amazonaws.regions.Region
 
 class TestAmazonElasticMapReduceClient extends AmazonElasticMapReduce {
   var jobFlowRequest: RunJobFlowRequest = null
@@ -15,8 +16,6 @@ class TestAmazonElasticMapReduceClient extends AmazonElasticMapReduce {
 
     new RunJobFlowResult().withJobFlowId(UUID.randomUUID.toString)
   }
-
-  def ??? = sys.error("Not implemented")
 
   def addInstanceGroups(addInstanceGroupsRequest: AddInstanceGroupsRequest): AddInstanceGroupsResult = ???
   def addJobFlowSteps(addJobFlowStepsRequest: AddJobFlowStepsRequest) = ???
@@ -30,4 +29,19 @@ class TestAmazonElasticMapReduceClient extends AmazonElasticMapReduce {
   def setEndpoint(endpoint: String) = ???
   def getCachedResponseMetadata(request: AmazonWebServiceRequest): ResponseMetadata = ???
   def setVisibleToAllUsers(visibleToAllUsers: SetVisibleToAllUsersRequest) = ???
+  def describeCluster(): DescribeClusterResult = ???
+  def describeCluster(describeClusterRequest: DescribeClusterRequest): DescribeClusterResult = ???
+  def describeStep(): DescribeStepResult = ???
+  def describeStep(describeStepRequest: DescribeStepRequest): DescribeStepResult = ???
+  def listBootstrapActions(): ListBootstrapActionsResult = ???
+  def listBootstrapActions(listBootstrapActionsRequest: ListBootstrapActionsRequest): ListBootstrapActionsResult = ???
+  def listClusters(): ListClustersResult = ???
+  def listClusters(listClustersRequest: ListClustersRequest): ListClustersResult = ???
+  def listInstanceGroups(): ListInstanceGroupsResult = ???
+  def listInstanceGroups(listInstanceGroupsRequest: ListInstanceGroupsRequest): ListInstanceGroupsResult = ???
+  def listInstances(): ListInstancesResult = ???
+  def listInstances(listInstancesRequest: ListInstancesRequest): ListInstancesResult = ???
+  def listSteps(): ListStepsResult = ???
+  def listSteps(listStepsRequest: ListStepsRequest): ListStepsResult = ???
+  def setRegion(region: Region): Unit = ???  
 }

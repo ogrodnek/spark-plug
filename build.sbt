@@ -9,9 +9,11 @@ scalaVersion := "2.10.2"
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
 libraryDependencies ++= Seq(
-  "com.amazonaws" % "aws-java-sdk" % "1.3.25",
+  "com.amazonaws" % "aws-java-sdk" % "1.6.9.1",
   "com.googlecode.json-simple" % "json-simple" % "1.1.1",
   "commons-lang" % "commons-lang" % "2.6",
   "junit" % "junit" % "4.10" % "test",
   "com.novocode" % "junit-interface" % "0.10-M4" % "test"
 )
+
+EclipseKeys.withSource := true

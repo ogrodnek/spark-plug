@@ -5,7 +5,8 @@ case class JobFlow(
   cluster: RunnableCluster,
   steps: Seq[JobStep],
   bootstrap: Seq[BootstrapAction] = Seq.empty,
-  keepAlive: Boolean = false
+  keepAlive: Boolean = false,
+  terminationProtection: Boolean = false
 ) {
   
   def withBootstrapAction(actions: Seq[BootstrapAction]) = {

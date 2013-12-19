@@ -12,7 +12,7 @@ class Emr(credentials: AWSCredentials) {
   lazy val emr: AmazonElasticMapReduce = new AmazonElasticMapReduceClient(credentials)
 
   def run(flow: JobFlow)(implicit config: ClusterConfig): String = {
-    val request = new RunJobFlowRequest(flow.name, toJobFlowInstancesConfig(config, flow.cluster.instances.toSeq, flow.keepAlive))
+    val request = new RunJobFlowRequest(flow.name, toJobFlowInstancesConfig(config, flow.cluster.instances.toSeq, flow.keepAlive, flow.terminationProtection))
 
     request.setAmiVersion(config.amiVersion.orNull)
     request.setLogUri(config.logUri.orNull)
@@ -27,13 +27,13 @@ class Emr(credentials: AWSCredentials) {
     emr.runJobFlow(request).getJobFlowId
   }
 
-  private def toJobFlowInstancesConfig(config: ClusterConfig, instances: Seq[InstanceGroup], keepAlive: Boolean): JobFlowInstancesConfig = {
+  private def toJobFlowInstancesConfig(config: ClusterConfig, instances: Seq[InstanceGroup], keepAlive: Boolean, terminationProtection: Boolean): JobFlowInstancesConfig = {
     val flow = new JobFlowInstancesConfig
 
     flow.setEc2KeyName(config.sshKeyPair.orNull)
     flow.setHadoopVersion(config.hadoopVersion.orNull)
     flow.setKeepJobFlowAliveWhenNoSteps(keepAlive)
-    flow.setTerminationProtected(keepAlive)
+    flow.setTerminationProtected(terminationProtection)
 
     for (az <- config.availabilityZone) {
       flow.setPlacement(new PlacementType().withAvailabilityZone(az))

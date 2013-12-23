@@ -43,5 +43,9 @@ class TestAmazonElasticMapReduceClient extends AmazonElasticMapReduce {
   def listInstances(listInstancesRequest: ListInstancesRequest): ListInstancesResult = ???
   def listSteps(): ListStepsResult = ???
   def listSteps(listStepsRequest: ListStepsRequest): ListStepsResult = ???
-  def setRegion(region: Region): Unit = ???  
+  def setRegion(region: Region): Unit = ???
+  def addTags(): AddTagsResult = ???
+  def addTags(addTagsRequest: AddTagsRequest): AddTagsResult = ???
+  def removeTags(): RemoveTagsResult = ???
+  def removeTags(x$1: RemoveTagsRequest): RemoveTagsResult = ???  
 }

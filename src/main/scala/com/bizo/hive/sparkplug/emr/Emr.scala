@@ -1,7 +1,7 @@
 package com.bizo.hive.sparkplug.emr
 
 import com.amazonaws.services.elasticmapreduce.model._
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient
 import com.amazonaws.auth.AWSCredentials
 import com.bizo.hive.sparkplug.auth._
@@ -19,10 +19,18 @@ class Emr(credentials: AWSCredentials) {
     request.setVisibleToAllUsers(config.visibleToAllUsers.map(boolean2Boolean(_)).orNull)
 
     request.setBootstrapActions(flow.bootstrap.map(b => {
-      new BootstrapActionConfig(b.name, new ScriptBootstrapActionConfig(b.path, b.args))
-    }))
+      new BootstrapActionConfig(b.name, new ScriptBootstrapActionConfig(b.path, b.args.asJava))
+    }) asJava)
+    
+    if (! flow.tags.isEmpty) {
+      val tags = (flow.tags.map { case (k, v) =>
+        new Tag(k, v)
+      }) asJava
+      
+      request.setTags(tags)
+    }
 
-    request.setSteps(toStepConfig(flow.steps))
+    request.setSteps(toStepConfig(flow.steps) asJava)
 
     emr.runJobFlow(request).getJobFlowId
   }
@@ -41,7 +49,7 @@ class Emr(credentials: AWSCredentials) {
     
     val groups = instances.map(toInstanceGroupConfig(config, _))
 
-    flow.withInstanceGroups(groups)
+    flow.withInstanceGroups(groups asJava)
   }
 
   private def toStepConfig(steps: Seq[JobStep]): Seq[StepConfig] = {

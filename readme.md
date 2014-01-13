@@ -11,7 +11,7 @@ It's been a pain to share defaults or add any abstraction over common job steps.
 
 ## simple example
 
-```objc
+```
 val flow = JobFlow(
   name      = s"${stage}: analytics report [${date}]",
   cluster   = Master() + Core(8) + Spot(10),

@@ -11,17 +11,21 @@ It's been a pain to share defaults or add any abstraction over common job steps.
 
 ## simple example
 
-```
-val steps = Seq(
-  SetupDebugging(),
-  HiveStep("s3://bucket/location/report.sql",
-           Map("YEAR" -> year, "MONTH" -> month, "DAY" -> day))
+```objc
+val flow = JobFlow(
+  name      = s"${stage}: analytics report [${date}]",
+  cluster   = Master() + Core(8) + Spot(10),
+  bootstrap = Seq(MemoryIntensive),
+  steps     = Seq(
+    SetupDebugging(),
+    new HiveStep("s3://bucket/location/report.sql",
+      Map("YEAR" -> year, "MONTH" -> month, "DAY" -> day))
+  )
 )
 
-val name = "%s: analytics report %s".format(stage, date)
-val instances = (Master("m1.large"), Core(4), Task(12, 0.30))
+val id = Emr.run(flow)(ClusterDefaults(hadoop="1.0.3"))
+println(id)
 
-Emr().run(name, ClusterDefaults(hadoop = "0.20"), instances, steps)
 ```
 
 ## download

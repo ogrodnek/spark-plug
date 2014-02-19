@@ -1,6 +1,6 @@
-lib
-target
-tools
+/lib
+target/
+/tools
 .cache
 .svn
 *~

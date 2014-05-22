@@ -1,5 +1,5 @@
 # spark-plug
-[![Build Status](https://drone.io/github.com/ogrodnek/spark-plug/status.png)](https://drone.io/github.com/ogrodnek/spark-plug/latest)
+[![Build Status](https://travis-ci.org/ogrodnek/spark-plug.svg?branch=master)](https://travis-ci.org/ogrodnek/spark-plug)
 
 A scala driver for launching Amazon EMR jobs
 

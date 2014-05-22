@@ -28,6 +28,8 @@ println(id)
 
 ```
 
+[API documentation](http://ogrodnek.github.io/spark-plug/latest/api/)
+
 ## download
 
 * [spark-plug_2.10-1.2.2](https://drone.io/github.com/ogrodnek/spark-plug/files/target/scala-2.10/spark-plug_2.10-1.2.2.jar)

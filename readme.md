@@ -28,7 +28,7 @@ println(id)
 
 ```
 
-[API documentation](http://ogrodnek.github.io/spark-plug/latest/api/)
+[API documentation](http://ogrodnek.github.io/spark-plug/latest/api/#com.bizo.hive.sparkplug.emr.package)
 
 ## download
 

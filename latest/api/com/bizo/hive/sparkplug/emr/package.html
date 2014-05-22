@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>emr - com.bizo.hive.sparkplug.emr</title>
+          <meta name="description" content="emr - com.bizo.hive.sparkplug.emr" />
+          <meta name="keywords" content="emr com.bizo.hive.sparkplug.emr" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'com.bizo.hive.sparkplug.emr.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="com">com</a>.<a href="../../../package.html" class="extype" name="com.bizo">bizo</a>.<a href="../../package.html" class="extype" name="com.bizo.hive">hive</a>.<a href="../package.html" class="extype" name="com.bizo.hive.sparkplug">sparkplug</a></p>
+        <h1>emr</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">emr</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="com.bizo.hive.sparkplug.emr"><span>emr</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.bizo.hive.sparkplug.emr.AbstractJarStep" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AbstractJarStepextendsJobStep"></a>
+      <a id="AbstractJarStep:AbstractJarStep"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractJarStep.html"><span class="name">AbstractJarStep</span></a><span class="result"> extends <a href="JobStep.html" class="extype" name="com.bizo.hive.sparkplug.emr.JobStep">JobStep</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Abstract job step representing running a jar file with optional main class and arguments.</p>
+    </li><li name="com.bizo.hive.sparkplug.emr.AbstractScriptStep" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AbstractScriptStepextendsAbstractJarStep"></a>
+      <a id="AbstractScriptStep:AbstractScriptStep"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractScriptStep.html"><span class="name">AbstractScriptStep</span></a><span class="result"> extends <a href="AbstractJarStep.html" class="extype" name="com.bizo.hive.sparkplug.emr.AbstractJarStep">AbstractJarStep</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Abstract job step representing running an arbitrary script via the AWS-provided script-runner jar.</p>
+    </li><li name="com.bizo.hive.sparkplug.emr.BidProvider" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BidProviderextendsAnyRef"></a>
+      <a id="BidProvider:BidProvider"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BidProvider.html"><span class="name">BidProvider</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.BootstrapAction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BootstrapActionextendsAnyRef"></a>
+      <a id="BootstrapAction:BootstrapAction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BootstrapAction.html"><span class="name">BootstrapAction</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.BootstrapScript" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BootstrapScriptextendsBootstrapActionwithProductwithSerializable"></a>
+      <a id="BootstrapScript:BootstrapScript"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="BootstrapScript.html"><span class="name">BootstrapScript</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="args">args: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">collection.this.Seq.empty[Nothing]</span></span>)</span><span class="result"> extends <a href="BootstrapAction.html" class="extype" name="com.bizo.hive.sparkplug.emr.BootstrapAction">BootstrapAction</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Cluster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Cluster[M,C,T]extendsAnyRef"></a>
+      <a id="Cluster[M,C,T]:Cluster[M,C,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Cluster.html"><span class="name">Cluster</span></a><span class="tparams">[<span name="M">M</span>, <span name="C">C</span>, <span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.ClusterConfig" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ClusterConfigextendsAnyRef"></a>
+      <a id="ClusterConfig:ClusterConfig"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ClusterConfig.html"><span class="name">ClusterConfig</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Core" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CoreextendsInstanceGroup"></a>
+      <a id="Core:Core"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Core.html"><span class="name">Core</span></a><span class="result"> extends <a href="InstanceGroup.html" class="extype" name="com.bizo.hive.sparkplug.emr.InstanceGroup">InstanceGroup</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.CoreDef" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CoreDefextendsAnyRef"></a>
+      <a id="CoreDef:CoreDef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CoreDef.html"><span class="name">CoreDef</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.DefaultBidProvider" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultBidProviderextendsBidProvider"></a>
+      <a id="DefaultBidProvider:DefaultBidProvider"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultBidProvider.html"><span class="name">DefaultBidProvider</span></a><span class="result"> extends <a href="BidProvider.html" class="extype" name="com.bizo.hive.sparkplug.emr.BidProvider">BidProvider</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Emr" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EmrextendsAnyRef"></a>
+      <a id="Emr:Emr"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Emr.html"><span class="name">Emr</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.FixedBidProvider" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FixedBidProviderextendsBidProvider"></a>
+      <a id="FixedBidProvider:FixedBidProvider"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FixedBidProvider.html"><span class="name">FixedBidProvider</span></a><span class="result"> extends <a href="BidProvider.html" class="extype" name="com.bizo.hive.sparkplug.emr.BidProvider">BidProvider</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.HiveStep" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HiveStepextendsJobStepwithProductwithSerializable"></a>
+      <a id="HiveStep:HiveStep"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="HiveStep.html"><span class="name">HiveStep</span></a><span class="params">(<span name="version">version: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="script">script: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="args">args: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <a href="JobStep.html" class="extype" name="com.bizo.hive.sparkplug.emr.JobStep">JobStep</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Executes a Hive script.</p>
+    </li><li name="com.bizo.hive.sparkplug.emr.InstallHive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InstallHiveextendsAbstractScriptStepwithProductwithSerializable"></a>
+      <a id="InstallHive:InstallHive"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="InstallHive.html"><span class="name">InstallHive</span></a><span class="params">(<span name="version">version: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="AbstractScriptStep.html" class="extype" name="com.bizo.hive.sparkplug.emr.AbstractScriptStep">AbstractScriptStep</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Installs Hive.</p>
+    </li><li name="com.bizo.hive.sparkplug.emr.InstanceGroup" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="InstanceGroupextendsAnyRef"></a>
+      <a id="InstanceGroup:InstanceGroup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="InstanceGroup.html"><span class="name">InstanceGroup</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.JarStep" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JarStepextendsAbstractJarStepwithProductwithSerializable"></a>
+      <a id="JarStep:JarStep"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="JarStep.html"><span class="name">JarStep</span></a><span class="params">(<span name="jar">jar: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="mainClass">mainClass: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>, <span name="args">args: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">collection.this.Seq.empty[Nothing]</span></span>)</span><span class="result"> extends <a href="AbstractJarStep.html" class="extype" name="com.bizo.hive.sparkplug.emr.AbstractJarStep">AbstractJarStep</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Generic JarStep for running a jar with an optional main class and optional args.</p>
+    </li><li name="com.bizo.hive.sparkplug.emr.JobFlow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JobFlowextendsProductwithSerializable"></a>
+      <a id="JobFlow:JobFlow"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="JobFlow.html"><span class="name">JobFlow</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="cluster">cluster: <a href="RunnableCluster.html" class="extype" name="com.bizo.hive.sparkplug.emr.RunnableCluster">RunnableCluster</a></span>, <span name="steps">steps: <span class="extype" name="scala.Seq">Seq</span>[<a href="JobStep.html" class="extype" name="com.bizo.hive.sparkplug.emr.JobStep">JobStep</a>]</span>, <span name="bootstrap">bootstrap: <span class="extype" name="scala.Seq">Seq</span>[<a href="BootstrapAction.html" class="extype" name="com.bizo.hive.sparkplug.emr.BootstrapAction">BootstrapAction</a>] = <span class="symbol">collection.this.Seq.empty[Nothing]</span></span>, <span name="keepAlive">keepAlive: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="terminationProtection">terminationProtection: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="tags">tags: <span class="extype" name="scala.Seq">Seq</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)] = <span class="defval" name="collection.this.Seq.apply[Nothing]()">...</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.JobStep" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JobStepextendsAnyRef"></a>
+      <a id="JobStep:JobStep"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JobStep.html"><span class="name">JobStep</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Master" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MasterextendsInstanceGroup"></a>
+      <a id="Master:Master"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Master.html"><span class="name">Master</span></a><span class="result"> extends <a href="InstanceGroup.html" class="extype" name="com.bizo.hive.sparkplug.emr.InstanceGroup">InstanceGroup</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.MasterDef" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MasterDefextendsAnyRef"></a>
+      <a id="MasterDef:MasterDef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MasterDef.html"><span class="name">MasterDef</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.MemoryIntensive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MemoryIntensiveextendsBootstrapScript"></a>
+      <a id="MemoryIntensive:MemoryIntensive"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryIntensive.html"><span class="name">MemoryIntensive</span></a><span class="result"> extends <a href="BootstrapScript.html" class="extype" name="com.bizo.hive.sparkplug.emr.BootstrapScript">BootstrapScript</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.RunnableCluster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RunnableClusterextendsAnyRef"></a>
+      <a id="RunnableCluster:RunnableCluster"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RunnableCluster.html"><span class="name">RunnableCluster</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.ScriptStep" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScriptStepextendsAbstractScriptStepwithProductwithSerializable"></a>
+      <a id="ScriptStep:ScriptStep"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ScriptStep.html"><span class="name">ScriptStep</span></a><span class="params">(<span name="script">script: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="scriptArgs">scriptArgs: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">collection.this.Seq.empty[Nothing]</span></span>)</span><span class="result"> extends <a href="AbstractScriptStep.html" class="extype" name="com.bizo.hive.sparkplug.emr.AbstractScriptStep">AbstractScriptStep</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Generic script to execute a shell script with optional arguments.</p>
+    </li><li name="com.bizo.hive.sparkplug.emr.SetupDebugging" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SetupDebuggingextendsAbstractScriptStepwithProductwithSerializable"></a>
+      <a id="SetupDebugging:SetupDebugging"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SetupDebugging.html"><span class="name">SetupDebugging</span></a><span class="params">()</span><span class="result"> extends <a href="AbstractScriptStep.html" class="extype" name="com.bizo.hive.sparkplug.emr.AbstractScriptStep">AbstractScriptStep</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Task" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TaskextendsInstanceGroup"></a>
+      <a id="Task:Task"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Task.html"><span class="name">Task</span></a><span class="result"> extends <a href="InstanceGroup.html" class="extype" name="com.bizo.hive.sparkplug.emr.InstanceGroup">InstanceGroup</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.TaskDef" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TaskDefextendsAnyRef"></a>
+      <a id="TaskDef:TaskDef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TaskDef.html"><span class="name">TaskDef</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.UnspecifiedDef" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="UnspecifiedDefextendsAnyRef"></a>
+      <a id="UnspecifiedDef:UnspecifiedDef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="UnspecifiedDef.html"><span class="name">UnspecifiedDef</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="com.bizo.hive.sparkplug.emr.Core" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Core"></a>
+      <a id="Core:Core"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Core$.html"><span class="name">Core</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Emr" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Emr"></a>
+      <a id="Emr:Emr"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Emr$.html"><span class="name">Emr</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.JobStepUtils" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JobStepUtils"></a>
+      <a id="JobStepUtils:JobStepUtils"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JobStepUtils$.html"><span class="name">JobStepUtils</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Master" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Master"></a>
+      <a id="Master:Master"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Master$.html"><span class="name">Master</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.RunnableCluster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RunnableCluster"></a>
+      <a id="RunnableCluster:RunnableCluster"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="RunnableCluster$.html"><span class="name">RunnableCluster</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Spot" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Spot"></a>
+      <a id="Spot:Spot"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Spot$.html"><span class="name">Spot</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.Task" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Task"></a>
+      <a id="Task:Task"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Task$.html"><span class="name">Task</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.package#defaultBidProvider" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="defaultBidProvider:com.bizo.hive.sparkplug.emr.BidProvider"></a>
+      <a id="defaultBidProvider:BidProvider"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">defaultBidProvider</span><span class="result">: <a href="BidProvider.html" class="extype" name="com.bizo.hive.sparkplug.emr.BidProvider">BidProvider</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.package#masterToCluster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="masterToCluster(m:com.bizo.hive.sparkplug.emr.Master):com.bizo.hive.sparkplug.emr.Cluster[com.bizo.hive.sparkplug.emr.MasterDef,com.bizo.hive.sparkplug.emr.UnspecifiedDef,com.bizo.hive.sparkplug.emr.UnspecifiedDef]"></a>
+      <a id="masterToCluster(Master):Cluster[MasterDef,UnspecifiedDef,UnspecifiedDef]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">masterToCluster</span><span class="params">(<span name="m">m: <a href="Master.html" class="extype" name="com.bizo.hive.sparkplug.emr.Master">Master</a></span>)</span><span class="result">: <a href="Cluster.html" class="extype" name="com.bizo.hive.sparkplug.emr.Cluster">Cluster</a>[<a href="MasterDef.html" class="extype" name="com.bizo.hive.sparkplug.emr.MasterDef">MasterDef</a>, <a href="UnspecifiedDef.html" class="extype" name="com.bizo.hive.sparkplug.emr.UnspecifiedDef">UnspecifiedDef</a>, <a href="UnspecifiedDef.html" class="extype" name="com.bizo.hive.sparkplug.emr.UnspecifiedDef">UnspecifiedDef</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="com.bizo.hive.sparkplug.emr.package#s3" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="s3:com.bizo.hive.sparkplug.s3.S3"></a>
+      <a id="s3:S3"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">s3</span><span class="result">: <a href="../s3/S3.html" class="extype" name="com.bizo.hive.sparkplug.s3.S3">S3</a></span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../lib/template.js"></script>
+    </body>
+      </html>

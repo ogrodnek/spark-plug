@@ -1,10 +1,12 @@
 organization := "com.bizo"
 
+organizationName := "com.bizo"
+
 name := "spark-plug"
 
 version := "1.2.2"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.10.3"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-language:_")
 
@@ -25,3 +27,27 @@ site.includeScaladoc()
 ghpages.settings
 
 git.remoteRepo := "git@github.com:ogrodnek/spark-plug.git"
+
+sonatypeSettings
+
+pomExtra := {
+ <url>https://github.com/ogrodnek/spark-plug</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>https://github.com/ogrodnek/spark-plug</url>
+    <connection>https://github.com/ogrodnek/spark-plug.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>larry</id>
+      <name>Larry Ogrodnek</name>
+      <email>larry@bizo.com</email>
+    </developer>
+  </developers>
+}

@@ -32,5 +32,5 @@ println(id)
 
 ## download
 
-* [spark-plug_2.10-1.2.2](https://drone.io/github.com/ogrodnek/spark-plug/files/target/scala-2.10/spark-plug_2.10-1.2.2.jar)
+Available in Maven Central as [com.bizo spark-plug_2.10](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22spark-plug_2.10%22)
 

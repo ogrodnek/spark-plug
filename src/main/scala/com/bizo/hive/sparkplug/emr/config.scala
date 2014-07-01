@@ -10,6 +10,8 @@ trait ClusterConfig {
   def defaultTaskSize: String = defaultCoreSize
   def visibleToAllUsers: Option[Boolean] = None
   def availabilityZone: Option[String] = None
+  def jobFlowRole: Option[String] = None
+  def serviceRole: Option[String] = None
 }
 
 class DefaultBidProvider extends BidProvider {

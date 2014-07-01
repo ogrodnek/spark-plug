@@ -18,6 +18,9 @@ class Emr(credentials: AWSCredentials) {
     request.setLogUri(config.logUri.orNull)
     request.setVisibleToAllUsers(config.visibleToAllUsers.map(boolean2Boolean(_)).orNull)
 
+    request.setJobFlowRole(config.jobFlowRole.orNull)
+    request.setServiceRole(config.serviceRole.orNull)
+
     request.setBootstrapActions(flow.bootstrap.map(b => {
       new BootstrapActionConfig(b.name, new ScriptBootstrapActionConfig(b.path, b.args.asJava))
     }) asJava)

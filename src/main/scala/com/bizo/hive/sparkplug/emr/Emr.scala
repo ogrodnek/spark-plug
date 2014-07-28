@@ -8,8 +8,16 @@ import com.bizo.hive.sparkplug.auth._
 import org.apache.commons.lang.StringUtils.substringAfterLast
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce
 
-class Emr(credentials: AWSCredentials) {
-  lazy val emr: AmazonElasticMapReduce = new AmazonElasticMapReduceClient(credentials)
+class Emr private(credentials: Option[AWSCredentials]) {
+
+  lazy val emr: AmazonElasticMapReduce = credentials match {
+    case Some(knownCredentials) => new AmazonElasticMapReduceClient(knownCredentials)
+    case None => new AmazonElasticMapReduceClient()
+  }
+
+  def this() = this(None)
+
+  def this(knownCredentials: AWSCredentials) = this(Some(knownCredentials))
 
   def run(flow: JobFlow)(implicit config: ClusterConfig): String = {
     val request = new RunJobFlowRequest(flow.name, toJobFlowInstancesConfig(config, flow.cluster.instances.toSeq, flow.keepAlive, flow.terminationProtection))

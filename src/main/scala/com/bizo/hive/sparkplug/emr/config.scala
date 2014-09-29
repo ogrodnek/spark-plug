@@ -12,6 +12,7 @@ trait ClusterConfig {
   def availabilityZone: Option[String] = None
   def jobFlowRole: Option[String] = None
   def serviceRole: Option[String] = None
+  def subnetId: Option[String] = None
 }
 
 class DefaultBidProvider extends BidProvider {

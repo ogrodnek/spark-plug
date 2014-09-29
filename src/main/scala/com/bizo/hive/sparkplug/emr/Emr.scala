@@ -57,6 +57,8 @@ class Emr private(credentials: Option[AWSCredentials]) {
     for (az <- config.availabilityZone) {
       flow.setPlacement(new PlacementType().withAvailabilityZone(az))
     }
+
+    flow.setEc2SubnetId(config.subnetId.orNull)
     
     val groups = instances.map(toInstanceGroupConfig(config, _))
 

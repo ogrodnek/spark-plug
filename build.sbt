@@ -1,3 +1,7 @@
+import SonatypeKeys._
+
+sonatypeSettings
+
 organization := "com.bizo"
 
 organizationName := "com.bizo"
@@ -27,8 +31,6 @@ site.includeScaladoc()
 ghpages.settings
 
 git.remoteRepo := "git@github.com:ogrodnek/spark-plug.git"
-
-sonatypeSettings
 
 pomExtra := {
  <url>https://github.com/ogrodnek/spark-plug</url>

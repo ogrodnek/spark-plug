@@ -19,7 +19,7 @@ class DefaultBidProvider extends BidProvider {
     // Standard 
     "m1.small" -> 0.048,
     "m1.medium" -> 0.096,
-    "m1.large" -> 0.0.193,
+    "m1.large" -> 0.193,
     "m1.xlarge" -> 0.385,
 
     // Second Generation

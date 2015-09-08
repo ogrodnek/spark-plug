@@ -34,6 +34,25 @@ case class HiveStep(version: String, script: String, args: Map[String, String]) 
   override val name = "Hive: " + JobStepUtils.getScriptName(script)
 }
 
+/** Executes a Spark job via spark-submit -- since emr-4.0.0 */
+case class SparkStep(jarPath: String, jobClass: String, sparkOptions: Option[Seq[String]] = None,
+  jobOptions: Option[Seq[String]] = None) extends JobStep {
+
+  override def toHadoopJarStep: HadoopJarStepConfig = {
+    val config = new HadoopJarStepConfig("command-runner.jar")
+
+    val args = Seq("spark-submit") ++
+     sparkOptions.getOrElse(Seq.empty[String]) ++
+     Seq("--class", jobClass) ++
+     Seq(jarPath) ++
+     jobOptions.getOrElse(Seq.empty[String])
+
+    config.withArgs(args)
+  }
+
+  override val name = s"Spark: ${JobStepUtils.getJarName(jarPath, Some(jobClass))}"
+}
+
 /** Abstract job step representing running a jar file with optional main class and arguments. */
 abstract class AbstractJarStep(jar: String, mainClass: Option[String] = None, args: Seq[String] = Seq.empty) extends JobStep {
   override def toHadoopJarStep: HadoopJarStepConfig = {

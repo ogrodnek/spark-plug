@@ -23,21 +23,25 @@ class Emr private(credentials: Option[AWSCredentials]) {
     val request = new RunJobFlowRequest(flow.name, toJobFlowInstancesConfig(config, flow.cluster.instances.toSeq, flow.keepAlive, flow.terminationProtection))
 
     request.setAmiVersion(config.amiVersion.orNull)
+    request.setReleaseLabel(config.releaseLabel.orNull)
     request.setLogUri(config.logUri.orNull)
     request.setVisibleToAllUsers(config.visibleToAllUsers.map(boolean2Boolean(_)).orNull)
 
     request.setJobFlowRole(config.jobFlowRole.orNull)
     request.setServiceRole(config.serviceRole.orNull)
 
+    config.applications.foreach(a => request.setApplications(a))
+
     request.setBootstrapActions(flow.bootstrap.map(b => {
       new BootstrapActionConfig(b.name, new ScriptBootstrapActionConfig(b.path, b.args.asJava))
     }) asJava)
-    
+
+
     if (! flow.tags.isEmpty) {
       val tags = (flow.tags.map { case (k, v) =>
         new Tag(k, v)
       }) asJava
-      
+
       request.setTags(tags)
     }
 
@@ -59,7 +63,7 @@ class Emr private(credentials: Option[AWSCredentials]) {
     }
 
     flow.setEc2SubnetId(config.subnetId.orNull)
-    
+
     val groups = instances.map(toInstanceGroupConfig(config, _))
 
     flow.withInstanceGroups(groups asJava)

@@ -41,4 +41,22 @@ class EmrTest {
 
     assertEquals(expected, aws.jobFlowRequest.getSteps.map(_.getName).toSeq)
   }
+
+  @Test
+  def testPopulateApplications() {
+    val testConfig = new ClusterConfig {
+      override def applications = Some(Seq(
+        Application(name = "Spark")
+      ))
+    }
+
+    val flow = JobFlow("test", Master() + Core(4) + Spot(4), Seq())
+
+    emr.run(flow)(testConfig)
+
+    val expected = Seq("Spark")
+    val actual = aws.jobFlowRequest.getApplications.map(a => a.getName).toSeq
+
+    assertEquals(expected, actual)
+  }
 }

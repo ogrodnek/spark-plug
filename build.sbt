@@ -8,7 +8,7 @@ organizationName := "com.bizo"
 
 name := "spark-plug"
 
-version := "1.2.4.2"
+version := "1.2.4.3"
 
 scalaVersion := "2.10.3"
 

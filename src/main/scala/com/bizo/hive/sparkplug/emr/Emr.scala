@@ -19,7 +19,8 @@ class Emr private(credentials: Option[AWSCredentials]) {
 
   def this(knownCredentials: AWSCredentials) = this(Some(knownCredentials))
 
-  def run(flow: JobFlow)(implicit config: ClusterConfig): String = {
+  def run(flow: JobFlow, configureRequest: RunJobFlowRequest => RunJobFlowRequest = identity)
+    (implicit config: ClusterConfig): String = {
     val request = new RunJobFlowRequest(flow.name, toJobFlowInstancesConfig(config, flow.cluster.instances.toSeq, flow.keepAlive, flow.terminationProtection))
 
     request.setAmiVersion(config.amiVersion.orNull)
@@ -47,7 +48,7 @@ class Emr private(credentials: Option[AWSCredentials]) {
 
     request.setSteps(toStepConfig(flow.steps) asJava)
 
-    emr.runJobFlow(request).getJobFlowId
+    emr.runJobFlow(configureRequest(request)).getJobFlowId
   }
 
   private def toJobFlowInstancesConfig(config: ClusterConfig, instances: Seq[InstanceGroup], keepAlive: Boolean, terminationProtection: Boolean): JobFlowInstancesConfig = {
@@ -112,6 +113,7 @@ class Emr private(credentials: Option[AWSCredentials]) {
 }
 
 object Emr {
+
   def apply() = new Emr(EmrJsonCredentials())
   def apply(credentials: AWSCredentials) = new Emr(credentials)
   def run(flow: JobFlow)(implicit config: ClusterConfig): String = {

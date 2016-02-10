@@ -19,31 +19,36 @@ class Emr private(credentials: Option[AWSCredentials]) {
 
   def this(knownCredentials: AWSCredentials) = this(Some(knownCredentials))
 
-  def run(flow: JobFlow)(implicit config: ClusterConfig): String = {
+  def run(flow: JobFlow, configureRequest: RunJobFlowRequest => RunJobFlowRequest = identity)
+    (implicit config: ClusterConfig): String = {
     val request = new RunJobFlowRequest(flow.name, toJobFlowInstancesConfig(config, flow.cluster.instances.toSeq, flow.keepAlive, flow.terminationProtection))
 
     request.setAmiVersion(config.amiVersion.orNull)
+    request.setReleaseLabel(config.releaseLabel.orNull)
     request.setLogUri(config.logUri.orNull)
     request.setVisibleToAllUsers(config.visibleToAllUsers.map(boolean2Boolean(_)).orNull)
 
     request.setJobFlowRole(config.jobFlowRole.orNull)
     request.setServiceRole(config.serviceRole.orNull)
 
+    config.applications.foreach(a => request.setApplications(a))
+
     request.setBootstrapActions(flow.bootstrap.map(b => {
       new BootstrapActionConfig(b.name, new ScriptBootstrapActionConfig(b.path, b.args.asJava))
     }) asJava)
-    
+
+
     if (! flow.tags.isEmpty) {
       val tags = (flow.tags.map { case (k, v) =>
         new Tag(k, v)
       }) asJava
-      
+
       request.setTags(tags)
     }
 
     request.setSteps(toStepConfig(flow.steps) asJava)
 
-    emr.runJobFlow(request).getJobFlowId
+    emr.runJobFlow(configureRequest(request)).getJobFlowId
   }
 
   private def toJobFlowInstancesConfig(config: ClusterConfig, instances: Seq[InstanceGroup], keepAlive: Boolean, terminationProtection: Boolean): JobFlowInstancesConfig = {
@@ -59,7 +64,7 @@ class Emr private(credentials: Option[AWSCredentials]) {
     }
 
     flow.setEc2SubnetId(config.subnetId.orNull)
-    
+
     val groups = instances.map(toInstanceGroupConfig(config, _))
 
     flow.withInstanceGroups(groups asJava)
@@ -108,6 +113,7 @@ class Emr private(credentials: Option[AWSCredentials]) {
 }
 
 object Emr {
+
   def apply() = new Emr(EmrJsonCredentials())
   def apply(credentials: AWSCredentials) = new Emr(credentials)
   def run(flow: JobFlow)(implicit config: ClusterConfig): String = {
